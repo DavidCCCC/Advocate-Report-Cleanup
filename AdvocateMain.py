@@ -54,15 +54,16 @@ def cleanup_1166(CP_file, output_file): #Needs Assessments
                 #print(row)
                 csv_out.writerow(row)
                 
-def cleanup_1073b(CP_file, output_file): #Family goals
+def cleanup_1235(CP_file, output_file): #Family goals
     with open(CP_file) as fin:
         with open(output_file, 'w', newline = '') as fout:
             csv_in = csv.reader(fin)
             csv_out = csv.writer(fout)
             for row in csv_in:
-                del row[0]
-                row.insert(0, row[5])
-                del row[4:]
+                print(row)
+                row.insert(2, row[5])
+                del row[6:]
+                del row[4]
                 print(row)
                 csv_out.writerow(row)
                 
@@ -136,7 +137,7 @@ cleanup_1034(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1034 Parent Confere
 cleanup_1034(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1034 Home Visits.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1034 HV Output.csv")
 cleanup_1026(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1026 Group List.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1026 GL Output.csv")
 cleanup_1166(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1166 Needs Assessments.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1166 NA Output.csv")
-cleanup_1073b(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1073 Family Goals.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1073b FG Output.csv")
+cleanup_1235(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1235 Family Goals.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1235 FG Output.csv")
 cleanup_4220(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\4220 FASNs.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\4220 FASNs Output.csv")
 cleanup_1077(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1077 CRMs.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1077 CRM Output.csv")
 cleanup_1073(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1073 Need Identified.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1073 NI Output.csv")
