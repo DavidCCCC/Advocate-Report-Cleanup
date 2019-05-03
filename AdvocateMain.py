@@ -128,8 +128,22 @@ def cleanup_1214(CP_file, output_file): #Roster Report
             csv_in = csv.reader(fin)
             csv_out = csv.writer(fout)
             for row in csv_in:
-                del row[2:]
                 print(row)
+                del row[6:]
+                del row[2]
+                del row[3:]
+                csv_out.writerow(row)
+
+def cleanup_1214fam(CP_file, output_file): #Creates a family table
+    with open(CP_file) as fin:
+        with open(output_file, 'w', newline = '') as fout:
+            csv_in = csv.reader(fin)
+            csv_out = csv.writer(fout)
+            for row in csv_in:
+                del row[6:]
+                del row[2]
+                del row[3]
+                del row[0:2]
                 csv_out.writerow(row)
             
             
@@ -143,8 +157,8 @@ cleanup_1077(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1077 CRMs.csv", r"C
 cleanup_1073(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1073 Need Identified.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1073 NI Output.csv")
 cleanup_1214(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1214 Homeless App.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1214 App Output.csv")
 cleanup_1214(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1214 Homeless FS.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1214 FS Output.csv")
-cleanup_1214(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1214 Class Roster.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1214 CR Output.csv")
 cleanup_1214(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1214 PIR.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1214 PIR Output.csv")
+cleanup_1214fam(r"C:\Users\DavidGaribaldi\Desktop\Python Inputs\1214 Family Roster.csv", r"C:\Users\DavidGaribaldi\Desktop\Python Outputs\1214 Family Output.csv")
 
 
 
