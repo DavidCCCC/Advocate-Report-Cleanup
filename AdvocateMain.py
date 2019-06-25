@@ -37,7 +37,7 @@ def cleanup_1026(CP_file, output_file): #1026 cleanup, only adds advocate groups
                 row.insert(2, row[5])
                 del row[5:7]
                 print(row)
-                if row[5] in advocate_list:
+                if row[9] in advocate_list:
                     csv_out.writerow(row)
 
 def cleanup_1166(CP_file, output_file): #Needs Assessments
@@ -60,11 +60,11 @@ def cleanup_1235(CP_file, output_file): #Family goals
             csv_in = csv.reader(fin)
             csv_out = csv.writer(fout)
             for row in csv_in:
-                print(row)
-                row.insert(2, row[5])
-                del row[6:]
+                row.insert(0, row[6])
+                del row[7:]
                 del row[4]
-                print(row)
+                del row[-1]
+                #print(row)
                 csv_out.writerow(row)
                 
 def cleanup_4220(CP_file, output_file): #FASN cleanup
@@ -103,7 +103,6 @@ def cleanup_1077(CP_file, output_file): #CRMs cleanup
                 row.pop()
                 row.insert(0, row[2])
                 del row[3]
-                print(row)
                 csv_out.writerow(row)
                 
 def cleanup_1073(CP_file, output_file): #Needs Identified
@@ -128,7 +127,6 @@ def cleanup_1214(CP_file, output_file): #Roster Report
             csv_in = csv.reader(fin)
             csv_out = csv.writer(fout)
             for row in csv_in:
-                print(row)
                 del row[6:]
                 del row[2]
                 del row[3:]
@@ -140,10 +138,13 @@ def cleanup_1214fam(CP_file, output_file): #Creates a family table
             csv_in = csv.reader(fin)
             csv_out = csv.writer(fout)
             for row in csv_in:
-                del row[6:]
+                #print(row)
+                del row[-1]
+                del row[-2]
                 del row[2]
                 del row[3]
                 del row[0:2]
+                #print(row)
                 csv_out.writerow(row)
             
             

@@ -32,10 +32,6 @@ def cleanup_1214fam(CP_file, output_file): #Roster Report
                 del row[1]
                 del row[2:]
                 csv_out.writerow(row)
-            for poop in csv_in:
-                print("Hello")
-                if poop != "":
-                    print("poop")
 
 def familydicter(csv_in, csv_out):
     n = 1
@@ -96,10 +92,10 @@ def cleanup_1235(CP_file, output_file): #Family goals
             csv_in = csv.reader(fin)
             csv_out = csv.writer(fout)
             for row in csv_in:
-                row.insert(2, row[5])
+                row.insert(0, row[6])
                 del row[6:]
                 del row[4]
-                #print(row)
+                print(row)
                 csv_out.writerow(row)
 
 def cleanup_1073(CP_file, output_file): #Needs Identified
@@ -139,13 +135,13 @@ def cleanup_4220(CP_file, output_file): #FASN cleanup
                         row[3] = 'Yes'
                     else:
                         row[3] = 'No'
-                    print(row)
+                    #print(row)
                     csv_out.writerow(row)
                 except:
                     if row[1] == 'Family ID':
                         row[2] = 'Entry Complete'
                         row[3] = 'Exit Complete'
-                        print(row)
+                        #print(row)
                         csv_out.writerow(row)
 
 
